@@ -1,2 +1,2 @@
-# CongretionalAppChallenge
-Congretional App Challenge 2023
+# CongressionalAppChallenge
+Congressional App Challenge 2023

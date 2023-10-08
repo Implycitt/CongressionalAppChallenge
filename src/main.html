@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Congressional App Challenge</title>
+
+    <link rel="stylesheet" href=".\css\materialize.min.css">
+    <script src=".\js\materialize.min.js"></script>
+    <script src=".\js\three.min.js"></script>
+
+    <style>
+
+        .body{ 
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .full-screen{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Hello world!</h1>
+
+    <div id="webglviewer" class="fullscreen"></div>
+
+    <script type="module", src="spheres.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,26 @@
+{
+  "name": "congressionalappchallenge",
+  "version": "1.0.0",
+  "description": "App for the congressional app challenge",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Implycitt/CongressionalAppChallenge.git"
+  },
+  "keywords": [
+    "congressionalappchallenge"
+  ],
+  "author": "Quentin, Revanth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Implycitt/CongressionalAppChallenge/issues"
+  },
+  "homepage": "https://github.com/Implycitt/CongressionalAppChallenge#readme",
+  "devDependencies": {
+    "electron": "^26.3.0"
+  }
+}

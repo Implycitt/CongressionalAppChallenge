@@ -2,7 +2,7 @@
   "name": "congressionalappchallenge",
   "version": "1.0.0",
   "description": "App for the congressional app challenge",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"

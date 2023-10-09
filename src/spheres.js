@@ -33,6 +33,9 @@ const animate = function () {
     sphere.rotation.y += 0.001;
     group.rotation.y =  mouse.x * 0.5;
 
+    // gsap.to(group.rotation, {
+    //     y: mouse.x * 0.5
+    // })
     renderer.render( scene, camera );
 };
 

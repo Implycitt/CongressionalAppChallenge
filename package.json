@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/Implycitt/CongressionalAppChallenge#readme",
   "devDependencies": {
-    "electron": "^26.3.0"
+    "electron": "^26.3.0",
+    "gsap": "^3.12.2"
   },
   "dependencies": {
-    "gsap": "^3.12.2",
     "three": "^0.157.0"
   }
 }

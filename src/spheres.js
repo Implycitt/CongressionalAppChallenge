@@ -5,22 +5,40 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setPixelRatio( window.devicePixelRatio );
 document.body.appendChild( renderer.domElement );
 
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const material = new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('./images/earth_daymap.jpg')
+})
+const geometry = new THREE.SphereGeometry(5, 100, 100);
+const sphere = new THREE.Mesh( geometry, material );
 
-camera.position.z = 5;
+scene.add( sphere );
+
+camera.position.z = 15;
+
+const group = new THREE.Group();
+group.add(sphere);
+scene.add(group);
+
+const mouse = {
+    x: undefined,
+    y: undefined
+}
 
 const animate = function () {
     requestAnimationFrame( animate );
 
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    sphere.rotation.y += 0.001;
+    group.rotation.y =  mouse.x * 0.5;
 
     renderer.render( scene, camera );
 };
 
 animate();
+
+addEventListener('mousemove', () => {
+    mouse.x = (event.clientX / innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / innerHeight) * 2 + 1;
+})

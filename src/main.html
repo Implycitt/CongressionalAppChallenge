@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Congressional App Challenge</title>
 
-    <link rel="stylesheet" href=".\css\materialize.min.css">
-    <script src=".\js\materialize.min.js"></script>
-    <script src=".\js\three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <style>
 
@@ -34,11 +32,62 @@
 <body>
 
     <div id="webglviewer" class="fullscreen"></div>
+    <script type="module" src="sphere.mjs"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js"></script>
 
-    <script type="module", src="spheres.js"></script>
+    <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-    <script type="module", src="animation.js"></script>
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    document.body.appendChild( renderer.domElement );
 
+    const material = new THREE.MeshBasicMaterial({
+        map: new THREE.TextureLoader().load('./images/earth_daymap.jpg')
+    })
+    const geometry = new THREE.SphereGeometry(5, 100, 100);
+    const sphere = new THREE.Mesh( geometry, material );
+
+    scene.add( sphere );
+
+    camera.position.z = 15;
+
+    const group = new THREE.Group();
+    group.add(sphere);
+    scene.add(group);
+
+    const mouse = {
+        x: undefined,
+        y: undefined
+    }
+
+    const animate = function () {
+        requestAnimationFrame( animate );
+
+        sphere.rotation.y += 0.001;
+
+        gsap.to(group.rotation, {
+            y: mouse.x * 0.5
+        })
+    renderer.render( scene, camera );
+    };
+
+    animate();
+
+    addEventListener('mousemove', () => {
+        mouse.x = (event.clientX / innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / innerHeight) * 2 + 1;
+    }) -->
+    <!-- </script> -->
+
+    <!-- <script src="requests.js"></script> -->
+
+    <div id="display-data"></div>
+
+    <!-- <script src="fetch.js"></script> -->
 </body>
 
 </html>

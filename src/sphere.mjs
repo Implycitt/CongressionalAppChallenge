@@ -1,4 +1,5 @@
-import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import * as THREE from 'three';
+import gsap from 'gsap';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -33,9 +34,9 @@ const animate = function () {
     sphere.rotation.y += 0.001;
     group.rotation.y =  mouse.x * 0.5;
 
-    // gsap.to(group.rotation, {
-    //     y: mouse.x * 0.5
-    // })
+    gsap.to(group.rotation, {
+        y: mouse.x * 0.5
+    })
     renderer.render( scene, camera );
 };
 

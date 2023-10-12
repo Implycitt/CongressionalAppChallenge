@@ -22,7 +22,10 @@
   "homepage": "https://github.com/Implycitt/CongressionalAppChallenge#readme",
   "devDependencies": {
     "electron": "^26.3.0",
-    "gsap": "^3.12.2"
+    "gsap": "^3.12.2",
+    "ts-loader": "^9.5.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "three": "^0.157.0"

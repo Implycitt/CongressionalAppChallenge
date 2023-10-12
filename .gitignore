@@ -1,2 +1,9 @@
+# Node modules
 node_modules
-api_key.txt
+
+# Build
+dist/
+.package/
+
+# Environment variables
+.env

@@ -1,0 +1,17 @@
+@import '../../../node_modules/materialize-css/dist/css/materialize.min.css';
+
+body {
+    margin: 0;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.full-screen {
+    position: absolute;
+
+    /* literally does nothing */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

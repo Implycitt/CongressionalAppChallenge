@@ -21,10 +21,12 @@
   "author": "Quentin, Revanth",
   "contributors": [
     {
-      "name": "Quentin"
+      "name": "Quentin",
+      "email": "qgbordelon@gmail.com"
     },
     {
-      "name": "Revanth"
+      "name": "Revanth",
+      "email": "revanthkb10@gmail.com"
     },
     {
       "name": "Damien Vesper",
@@ -37,7 +39,7 @@
   },
   "homepage": "https://github.com/Implycitt/CongressionalAppChallenge#readme",
   "devDependencies": {
-    "@babel/core": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.22.20",
     "autoprefixer": "^10.4.16",
     "babel-loader": "^9.1.3",
@@ -53,6 +55,8 @@
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.2.0",
+    "react": "^18.2.0",
+    "react-native": "^0.72.6",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
@@ -61,8 +65,11 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.22.15",
+    "babel-preset-es2015": "^6.24.1",
     "gsap": "^3.12.2",
     "materialize-css": "^1.0.0",
-    "three": "^0.157.0"
+    "three": "^0.157.0",
+    "three.interactive": "^1.7.0"
   }
 }

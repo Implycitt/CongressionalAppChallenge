@@ -11,6 +11,7 @@ import {
     WebGLRenderer
 } from "three";
 import gsap from "gsap";
+import { InteractionManager } from 'three.interactive';
 
 const scene = new Scene();
 const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -41,20 +42,33 @@ scene.add(group);
 
 const mouse = { x: null, y: null };
 
+const interactionManager = new InteractionManager(
+    renderer,
+    camera,
+    renderer.domElement
+);
+
+interactionManager.add(sphere);
+
 function animate() {
-    requestAnimationFrame(animate);
-
     sphere.rotation.y += 0.001;
-    group.rotation.y = mouse.x * 0.5;
-
     gsap.to(group.rotation, { y: mouse.x * 0.5 });
-
+    
+    requestAnimationFrame(animate);
     renderer.render(scene, camera);
 }
-
-animate();
 
 document.addEventListener("mousemove", e => {
     mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
 });
+
+sphere.addEventListener('mousedown', (event) => {
+    gsap.to(camera.position, {
+        x: -8,
+        z: 17,
+        duration: 2.5
+    })
+})
+
+animate()

@@ -2,6 +2,7 @@ import earth_daymap from "../assets/img/earth_daymap.jpg";
 
 import {
     Group,
+    LineBasicMaterial,
     Mesh,
     MeshBasicMaterial,
     PerspectiveCamera,

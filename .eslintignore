@@ -1,0 +1,9 @@
+# Build files
+.package/
+dist/
+
+# Libraries
+src/assets/js/libs/
+
+# Node
+node_modules/

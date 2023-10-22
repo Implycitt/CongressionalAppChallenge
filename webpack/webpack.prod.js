@@ -6,11 +6,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 const { resolve } = require("path");
 
 const config = merge.default(common, {
-    mode: `production`,
+    mode: "production",
 
     output: {
-        path: resolve(__dirname, `../dist`),
-        filename: `assets/js/[name].[chunkhash:8].js`,
+        path: resolve(__dirname, "../dist"),
+        filename: "assets/js/[name].[chunkhash:8].js",
         clean: true
     },
 
@@ -18,14 +18,14 @@ const config = merge.default(common, {
         new CopyPlugin({
             patterns: [
                 {
-                    from: resolve(__dirname, `../public`),
-                    to: resolve(__dirname, `../dist`),
+                    from: resolve(__dirname, "../public"),
+                    to: resolve(__dirname, "../dist"),
                     globOptions: {
-                        ignore: [`**/index.html`]
+                        ignore: ["**/index.html"]
                     }
                 },
                 resolve(__dirname, "../src/.electron/electron.js"),
-                resolve(__dirname, "../package.json"),
+                resolve(__dirname, "../package.json")
             ]
         })
     ]

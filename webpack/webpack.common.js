@@ -14,12 +14,12 @@ dotenv.config();
 
 const config = {
     entry: {
-        app: resolve(__dirname, `../src/scripts/index.js`)
+        app: resolve(__dirname, "../src/scripts/index.js")
     },
 
     resolve: {
-        extensions: [`.js`, `.mjs`],
-        mainFields: [`browser`, `module`, `main`]
+        extensions: [".js", ".mjs"],
+        mainFields: ["browser", "module", "main"]
     },
 
     module: {
@@ -28,10 +28,10 @@ const config = {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: `babel-loader`,
+                    loader: "babel-loader",
                     options: {
                         presets: [
-                            [`@babel/preset-env`, { targets: `defaults` }]
+                            ["@babel/preset-env", { targets: "defaults" }]
                         ]
                     }
                 }
@@ -40,22 +40,22 @@ const config = {
                 test: /\.css$/,
                 use: [
                     MiniCSSExtractPlugin.loader,
-                    `css-loader`,
-                    `postcss-loader`
+                    "css-loader",
+                    "postcss-loader"
                 ]
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: `asset/resource`,
+                type: "asset/resource",
                 generator: {
-                    filename: `assets/img/static/[contenthash:8][ext]`
+                    filename: "assets/img/static/[contenthash:8][ext]"
                 }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: `asset/resource`,
+                type: "asset/resource",
                 generator: {
-                    filename: `assets/fonts/static/[contenthash:8][ext]`
+                    filename: "assets/fonts/static/[contenthash:8][ext]"
                 }
             }
         ]
@@ -70,7 +70,7 @@ const config = {
         new WebpackManifestPlugin({}),
         new HTMLWebpackPlugin({
             inject: true,
-            template: resolve(__dirname, `../public/index.html`),
+            template: resolve(__dirname, "../public/index.html"),
 
             minify: {
                 removeComments: true,
@@ -85,27 +85,27 @@ const config = {
                 minifyURLs: true
             }
         }),
-        new MiniCSSExtractPlugin({ filename: `assets/css/[name].[contenthash:8].css` }),
+        new MiniCSSExtractPlugin({ filename: "assets/css/[name].[contenthash:8].css" })
     ],
 
     optimization: {
         runtimeChunk: {
-            name: `manifest`
+            name: "manifest"
         },
         splitChunks: {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
-                    name: `vendor`,
-                    chunks: `all`
+                    name: "vendor",
+                    chunks: "all"
                 }
             }
         },
         minimizer: [
-            `...`,
+            "...",
             new CSSMinimizerPlugin({
                 minimizerOptions: {
-                    preset: [`default`, { discardComments: { removeAll: true } }]
+                    preset: ["default", { discardComments: { removeAll: true } }]
                 }
             })
         ]
@@ -115,7 +115,7 @@ const config = {
         hints: false
     },
 
-    stats: `minimal`
+    stats: "minimal"
 };
 
 module.exports = config;

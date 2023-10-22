@@ -1,5 +1,5 @@
-const display = document.querySelector("display-data");
+// const display = document.querySelector("display-data");
 
-const getData = async () => {};
+// const getData = async () => {};
 
 // displayUsers();

@@ -14,11 +14,35 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: var(--background-color);
+  background-color: black;
   font-family: 'Open Sans', sans-serif;
-  color: var(--text-color);
+  color: black;
   text-align: left;
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  margin-top: 5rem;
+  padding: 1rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--background-color);
 }
 
 .canvas-container {

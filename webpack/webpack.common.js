@@ -14,7 +14,7 @@ dotenv.config();
 
 const config = {
     entry: {
-        app: resolve(__dirname, `../src/index.js`)
+        app: resolve(__dirname, `../src/scripts/index.js`)
     },
 
     resolve: {

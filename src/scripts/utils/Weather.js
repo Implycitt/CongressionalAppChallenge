@@ -8,7 +8,7 @@ async function get_data(url) {
     const res = await fetch(url);
     const data = await response.json();
 
-    writeFileSync("weather.json", JSON.stringify(data, null, 4));
+    writeFileSync("../../assets/json/weather.json", JSON.stringify(data, null, 4));
 }
 
 get_data(api_url);

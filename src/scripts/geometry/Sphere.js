@@ -58,6 +58,9 @@ export const createSphere = (core) => {
             z: 17,
             duration: 2.5
         });
+        var text = document.createElement('div');
+        document.text.id = 'text-front';
+        text.appendChild(document.createTextNode('html string'))
     });
 
     animate();

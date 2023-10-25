@@ -45,6 +45,15 @@ canvas#earth-canvas {
     position: absolute;
 }
 
+.exit {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: #6649b8;
+}
+
 .headline-container {
     display: flex;
     align-items: center;

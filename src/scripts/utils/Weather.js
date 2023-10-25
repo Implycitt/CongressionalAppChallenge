@@ -4,6 +4,8 @@ import { writeFileSync } from "fs";
 
 const api_url = ""
 
+document.write('')
+
 async function get_data(url) {
     const res = await fetch(url);
     const data = await response.json();

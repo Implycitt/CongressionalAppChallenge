@@ -158,14 +158,14 @@ export const createSphere = (core) => {
         document.body.appendChild(exit);
         exit.addEventListener('click', () => {
             document.body.removeChild(exit);
+            document.getElementById("rem").setAttribute("hidden", "");
             gsap.to(camera.position, {
                 x: 0,
                 z: 15,
                 duration: 2.5
             })
         })
-        var search = document.createElement('search');
-        document.body.appendChild(search);
+        document.getElementById("rem").removeAttribute("hidden");
     });
 
     animate();

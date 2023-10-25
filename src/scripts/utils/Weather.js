@@ -2,6 +2,12 @@
 
 import { writeFileSync } from "fs";
 
+const search_city = "https://geocoding-api.open-meteo.com/v1/search";
+
+async function get_city(url, name) {
+    const response = await fetch(url+`?name=${name}`);
+}
+
 const api_url = ""
 
 document.write('')

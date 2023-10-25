@@ -20,7 +20,9 @@ import gsap from "gsap";
 import { InteractionManager } from "three.interactive";
 
 import earth_daymap from "../../assets/img/earth_daymap.jpg";
+import mars_map from "../../assets/img/mars.jpg"
 import earth_bump from "../../assets/img/earthbump.jpg"
+import mars_bump from "../../assets/img/marsBump.jpg"
 import earth_clouds from "../../assets/img/earthCloud.png"
 import star from "../../assets/img/stars.png"
 
@@ -28,10 +30,14 @@ export const createSphere = (core) => {
     const { camera, renderer, scene } = core;
 
     const earthMaterial = new MeshPhongMaterial({
-        roughness: 1,
-        metalness: 0,
         map: new TextureLoader().load(earth_daymap),
         bumpMap: new TextureLoader().load(earth_bump),
+        bumpScale: 2
+    })
+
+    const marsMaterial = new MeshPhongMaterial({
+        map: new TextureLoader().load(mars_map),
+        bumpMap: new TextureLoader().load(mars_bump),
         bumpScale: 2
     })
 
@@ -75,9 +81,13 @@ export const createSphere = (core) => {
     scene.add(pointLight);
 
     const geometry = new SphereGeometry(5, 100, 100);
+    const mars_geometry = new SphereGeometry(4, 100, 100);
     const earth = new Mesh(geometry, earthMaterial);
+    const mars = new Mesh(mars_geometry, marsMaterial);
+    mars.position.set(13, 0, -4);
 
     scene.add(earth);
+    scene.add(mars);
 
     camera.position.z = 15;
 
@@ -99,6 +109,7 @@ export const createSphere = (core) => {
 
     const animate = () => {
         earth.rotation.y += 0.001;
+        mars.rotation.y += 0.001;
         cloudMesh.rotation.y += 0.001;
         gsap.to(group.rotation, { y: mouse.x * 0.5 });
 
@@ -109,6 +120,31 @@ export const createSphere = (core) => {
     document.addEventListener("mousemove", e => {
         mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
         mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    group.addEventListener('mousedown', e => {
+        isDown = true;
+        startX = e.pageX - group.offsetLeft;
+        scrollLeft = group.scrollLeft;
+    });
+
+    group.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    group.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    group.addEventListener('mousemove', () => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - group.offsetLeft;
+        const walk = x - startX;
     });
 
     earth.addEventListener("mousedown", (event) => {
@@ -128,8 +164,8 @@ export const createSphere = (core) => {
                 duration: 2.5
             })
         })
-        var text = document.createElement('div');
-        document.body.appendChild(text);
+        var search = document.createElement('search');
+        document.body.appendChild(search);
     });
 
     animate();

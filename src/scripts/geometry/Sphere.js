@@ -14,10 +14,10 @@ import {
     PointsMaterial,
     Points,
     Float32BufferAttribute,
+    ShaderMaterial,
 } from "three";
 import gsap from "gsap";
 import { InteractionManager } from "three.interactive";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 import earth_daymap from "../../assets/img/earth_daymap.jpg";
 import earth_bump from "../../assets/img/earthbump.jpg"
@@ -26,8 +26,6 @@ import star from "../../assets/img/stars.png"
 
 export const createSphere = (core) => {
     const { camera, renderer, scene } = core;
-
-    const controls = new OrbitControls(camera, renderer.domElement)
 
     const earthMaterial = new MeshPhongMaterial({
         roughness: 1,
@@ -69,7 +67,7 @@ export const createSphere = (core) => {
     const cloudMesh = new Mesh(cloudGeometry, cloudMaterial);
     scene.add(cloudMesh);
 
-    var ambientlight = new AmbientLight( 0xffffff, 0.2);
+    var ambientlight = new AmbientLight( 0xffffff, 0.5);
     scene.add(ambientlight);
 
     const pointLight = new PointLight(0xffffff, 20);
@@ -106,7 +104,6 @@ export const createSphere = (core) => {
 
         requestAnimationFrame(animate);
         renderer.render(scene, camera);
-        controls.update();
     };
 
     document.addEventListener("mousemove", e => {

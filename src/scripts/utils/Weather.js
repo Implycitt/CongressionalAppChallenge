@@ -4,15 +4,18 @@ import { writeFileSync } from "fs";
 
 const search_city = "https://geocoding-api.open-meteo.com/v1/search";
 
-var cityName = document.getElementById("rem").value;
+var cityName = document.querySelector(".search input").value;
 
-async function get_city(url, name) {
-    const response = await fetch(url+`?name=${name}`);
-}
+const response = await fetch(search_city+`?name=${cityName}`);
+const data = await response.json();
+writeFileSync("../..assets/json/weather.json", JSON.stringify(data, null, 4));
 
-const api_url = ""
+file = "../..assets/json/weather.json";
 
-document.write('')
+var lat = JSON.parse(file).latitude;
+var lon = JSON.parse(file).longitude;
+
+const api_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=relativehumidity_2m,is_day,precipitation,rain,snowfall,windspeed_10m&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset`;
 
 async function get_data(url) {
     const res = await fetch(url);

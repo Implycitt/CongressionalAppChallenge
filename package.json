@@ -1,4 +1,9 @@
 {
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
+  },
   "name": "@implycitt/congressionalappchallenge",
   "version": "0.0.0",
   "description": "App for the Congressional App Challenge.",

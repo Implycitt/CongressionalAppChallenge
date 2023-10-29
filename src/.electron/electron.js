@@ -6,7 +6,8 @@ let createWindow = () => {
         height: 600,
         title: "Congressional App Challenge",
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         }
     });
 

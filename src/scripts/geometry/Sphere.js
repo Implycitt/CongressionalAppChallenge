@@ -1,32 +1,25 @@
 import {
     Group,
     Mesh,
-    MeshBasicMaterial,
     SphereGeometry,
     TextureLoader,
     MeshPhongMaterial,
-    Texture,
-    DirectionalLight,
     AmbientLight,
     PointLight,
-    PointLightHelper,
     BufferGeometry,
     PointsMaterial,
     Points,
-    Float32BufferAttribute,
-    ShaderMaterial,
+    Float32BufferAttribute
 } from "three";
 import gsap from "gsap";
 import { InteractionManager } from "three.interactive";
-import { writeFileSync } from "fs";
 
 import earth_daymap from "../../assets/img/earth_daymap.jpg";
-import mars_map from "../../assets/img/mars.jpg"
-import earth_bump from "../../assets/img/earthbump.jpg"
-import mars_bump from "../../assets/img/marsBump.jpg"
-import earth_clouds from "../../assets/img/earthCloud.png"
-import star from "../../assets/img/stars.png"
-
+import mars_map from "../../assets/img/mars.jpg";
+import earth_bump from "../../assets/img/earthbump.jpg";
+import mars_bump from "../../assets/img/marsBump.jpg";
+import earth_clouds from "../../assets/img/earthCloud.png";
+import star from "../../assets/img/stars.png";
 
 export const createSphere = (core) => {
     const { camera, renderer, scene } = core;
@@ -35,25 +28,25 @@ export const createSphere = (core) => {
         map: new TextureLoader().load(earth_daymap),
         bumpMap: new TextureLoader().load(earth_bump),
         bumpScale: 2
-    })
+    });
 
     const marsMaterial = new MeshPhongMaterial({
         map: new TextureLoader().load(mars_map),
         bumpMap: new TextureLoader().load(mars_bump),
         bumpScale: 2
-    })
+    });
 
     const sprite = new TextureLoader().load(star);
 
-    const starGeometry = new BufferGeometry()
+    const starGeometry = new BufferGeometry();
     const starMaterial = new PointsMaterial({
         color: 0xffffff,
-        size: 0.7, 
+        size: 0.7,
         transparent: true,
         map: sprite
-    })
+    });
 
-    const starVertices = []
+    const starVertices = [];
     for (let i = 0; i < 10000; i++) {
         const x = (Math.random() - 0.5) * 2000;
         const y = (Math.random() - 0.5) * 2000;
@@ -61,25 +54,25 @@ export const createSphere = (core) => {
         starVertices.push(x, y, z);
     }
 
-    starGeometry.setAttribute('position', new Float32BufferAttribute(starVertices, 3))
+    starGeometry.setAttribute("position", new Float32BufferAttribute(starVertices, 3));
     const stars = new Points(starGeometry, starMaterial);
-    scene.add(stars)
+    scene.add(stars);
 
     const cloudGeometry = new SphereGeometry(5.15, 100, 100);
 
     const cloudMaterial = new MeshPhongMaterial({
         map: new TextureLoader().load(earth_clouds),
-        transparent: true,
-    })
+        transparent: true
+    });
 
     const cloudMesh = new Mesh(cloudGeometry, cloudMaterial);
     scene.add(cloudMesh);
 
-    var ambientlight = new AmbientLight( 0xffffff, 0.5);
+    const ambientlight = new AmbientLight(0xffffff, 0.5);
     scene.add(ambientlight);
 
     const pointLight = new PointLight(0xffffff, 20);
-    pointLight.position.set(5,3,5);
+    pointLight.position.set(5, 3, 5);
     scene.add(pointLight);
 
     const geometry = new SphereGeometry(5, 100, 100);
@@ -96,7 +89,7 @@ export const createSphere = (core) => {
     const group = new Group();
 
     group.add(earth);
-    group.add(cloudMesh)
+    group.add(cloudMesh);
     scene.add(group);
 
     const mouse = { x: null, y: null };
@@ -128,23 +121,24 @@ export const createSphere = (core) => {
     let startX;
     let scrollLeft;
 
-    group.addEventListener('mousedown', e => {
+    group.addEventListener("mousedown", e => {
         isDown = true;
         startX = e.pageX - group.offsetLeft;
         scrollLeft = group.scrollLeft;
     });
 
-    group.addEventListener('mouseleave', () => {
+    group.addEventListener("mouseleave", () => {
         isDown = false;
     });
 
-    group.addEventListener('mouseup', () => {
+    group.addEventListener("mouseup", () => {
         isDown = false;
     });
 
-    group.addEventListener('mousemove', () => {
-        if(!isDown) return;
+    group.addEventListener("mousemove", e => {
+        if (!isDown) return;
         e.preventDefault();
+
         const x = e.pageX - group.offsetLeft;
         const walk = x - startX;
     });
@@ -155,21 +149,23 @@ export const createSphere = (core) => {
             z: 17,
             duration: 2.5
         });
-        const exit = document.createElement('button');
-        exit.className = 'exit';
+
+        const exit = document.createElement("button");
+        exit.className = "exit";
+
         document.body.appendChild(exit);
-        exit.addEventListener('click', () => {
+        exit.addEventListener("click", () => {
             document.body.removeChild(exit);
             document.getElementById("rem").setAttribute("hidden", "");
             gsap.to(camera.position, {
                 x: 0,
                 z: 15,
                 duration: 2.5
-            })
-        })
+            });
+        });
+
         document.getElementById("rem").removeAttribute("hidden");
     });
 
     animate();
-
 };

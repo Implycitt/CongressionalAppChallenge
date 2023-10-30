@@ -150,13 +150,17 @@ export const createSphere = (core) => {
             duration: 2.5
         });
 
-        const exit = document.createElement("button");
-        exit.className = "exit";
+        const exit = document.getElementById("exit");
+        exit.removeAttribute("hidden");
 
-        document.body.appendChild(exit);
         exit.addEventListener("click", () => {
-            document.body.removeChild(exit);
+            exit.setAttribute("hidden", "");
             document.getElementById("rem").setAttribute("hidden", "");
+
+            if (document.getElementById("weather") != null) {
+                document.getElementById("weather").style.display = "none";
+            }
+
             gsap.to(camera.position, {
                 x: 0,
                 z: 15,

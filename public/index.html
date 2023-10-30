@@ -21,14 +21,45 @@
     </aside>
     <main>
         <canvas id="earth-canvas"></canvas>
+        <button hidden class="exit" id="exit"><i class="material-icons">close</i></button>
         <div class="headline-container">
-            <div class="container">
+            <div class="container" id="container">
                 <div class="search">
                     <input hidden type="text" placeholder="Enter city name: " spellcheck="false" id="rem">
+                </div>
+                <div class="weather" id="weather">
+                    <img src="../src/assets/img/icons/sunrain.png" class="weather-icon">
+                    <h1 class="city" id="city"></h1>
+                    <h1 class="day" id="day"></h1>
+                    <h1 class="time" id="time"></h1>
+                    <h2 class="currenttemp" id="currenttemp"></h2>
+                    <h2 class="mintemp" id="mintemp"></h2>
+                    <h2 class="maxtemp" id="maxtemp"></h2>
+                    <div class="details">
+                        <div class="col">
+                            <img src="../src/assets/img/icons/humidity.png">
+                            <p id="humidity"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="../src/assets/img/icons/wind.png">
+                            <p id="wind"></p>
+                            <img src="../src/assets/img/icons/chance.png">
+                            <p id="rain"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="../src/assets/img/icons/sunrise.png">
+                            <p id="sunrise"></p>
+                            <img src="../src/assets/img/icons/sunset.png">
+                            <p id="sunset"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-    <nav class="navbar"></nav>
 </body>
 </html>

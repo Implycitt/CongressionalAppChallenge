@@ -16,6 +16,7 @@ let createWindow = () => {
 }
 
 app.whenReady().then(createWindow);
+app.use( express.static( "public" ) );
 
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") app.quit();

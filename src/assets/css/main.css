@@ -3,15 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-:root {
-    --headline-color: white;
-    --background-color: #11151c;
-    --text-color: rgba(255, 255, 255, 0.5);
-}
 
 html, body {
-    font-family: 'Open Sans', sans-serif;
-
     margin: 0;
     padding: 0;
 
@@ -47,12 +40,26 @@ canvas#earth-canvas {
 }
 
 .exit {
-    width: 40px;
-    height: 40px;
     position: absolute;
+    margin-top: 10px;
+    margin-right: 10px;
     top: 0;
     right: 0;
+    color: white;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-text-fill-color: white;
+    width: 90%;
+    max-width: 470px;
+    background: transparent;
+    border-radius: 20px;
     border-color: #6649b8;
+    margin: 100px;
+    padding: 40px 35px;
+    text-align: center;
+    animation: reveal 1.5 cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
 }
 
 .search {
@@ -74,6 +81,7 @@ canvas#earth-canvas {
     flex: 1;
     margin-right: 16px;
     font-size: 18px;
+    -webkit-text-fill-color: grey;
 }
 
 .headline-container {
@@ -88,43 +96,54 @@ canvas#earth-canvas {
     bottom: 0;
 } 
 
-/* #text-front {
-    font-family: 'Roboto', sans-serif;
-    text-align: left;
-
-    font-size: clamp(24px, 30vw, 40px);
-    font-weight: 10;
-
-    max-width: 300px;
-    letter-spacing: 3px;
-    line-height: 1;
-
-    -webkit-text-stroke: 2px var(--headline-color);
-}  */
-
-/* .more-content {
-    height: 500vh;
-    width: 100vw;
-}  */
-
-/* .text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    top: 5%;
-    height: 90%;
-    width: 100%;
-    position: absolute;
-    left: 10;
-}  */
-
-a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: all 0.5s ease-in-out;
+.weather h1 {
+    font-size: 35px;
+    font-weight: 150;
 }
 
-a:hover {
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
+.weather h2 {
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+p {
+    display: inline-block;
+    margin-block-end: 30px;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind {
+    font-size: 35px;
+}
+
+.weather{
+    display: none;
+}
+
+@keyframes reveal{
+  0% {
+    transform: translate(0,100%);
+  }
+  100% {
+    transform: translate(0,0);
+  }
 }

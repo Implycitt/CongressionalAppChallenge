@@ -15,7 +15,7 @@
     "dev": "webpack serve --config ./webpack/webpack.dev.js",
     "lint": "eslint . --ext .js --fix",
     "lint:ci": "eslint . --ext .js",
-    "package": "electron-packager dist congressionalappchallenge --out=.package --overwrite --all",
+    "package": "electron-packager dist congressionalappchallenge --out=.package --overwrite --win32 --timestamp=none",
     "package:dev": "electron-packager dist congressionalappchallenge --out=.package --overwrite"
   },
   "repository": {
@@ -62,6 +62,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
+    "express": "^4.18.2",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.31",
@@ -76,8 +77,11 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "@electron/osx-sign": "^1.0.5",
+    "express": "^4.18.2",
     "gsap": "^3.12.2",
     "materialize-css": "^1.0.0",
+    "process": "^0.11.10",
     "three": "^0.157.0",
     "three.interactive": "^1.7.0"
   }

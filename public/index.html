@@ -26,35 +26,29 @@
             <div hidden class="container" id="container">
                 <div class="search">
                     <input hidden type="text" placeholder="Enter city name: " spellcheck="false" id="rem">
+                    <button hidden class="searching" id="searching"><img src="./icons/search.png"></button>
                 </div>
                 <div class="weather" id="weather">
-                    <img id="weatherIcon" src="./icons/sunnycloud.png">
+                    <img id="weatherIcon" src="./icons/day.png">
                     <h1 class="city" id="city"></h1>
                     <h1 class="day" id="day"></h1>
                     <h1 class="time" id="time"></h1>
-                    <h2 class="currenttemp" id="currenttemp"></h2>
+                    <h1 class="currenttemp" id="currenttemp"></h2>
                     <h2 class="mintemp" id="mintemp"></h2>
                     <h2 class="maxtemp" id="maxtemp"></h2>
                     <div class="details">
-                        <div class="col">
-                            <img src="./icons/humidity.png" id="humidity"></img>
-                            <p id="humidity"></p>
-                        </div>
-                    </div>
-                    <div class="col">
+                    <div class="row">
                         <div>
-                            <img src="./icons/wind.png" id="wind"></img>
-                            <p id="wind"></p>
-                            <img src="./icons/chance.png" id="chance"></img>
-                            <p id="rain"></p>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div>
-                            <img src="./icons/sunrise.png" id="sunrise"></img>
-                            <p id="sunrise"></p>
-                            <img src="./icons/sunset.png" id="sunset"></img>
-                            <p id="sunset"></p>
+                            <img src="./icons/wind.png" id="windi"></img>
+                            <span class="caption" id="wind"></span>
+                            <img src="./icons/chance.png" id="chancei"></img>
+                            <span class="caption" id="rain"></span>
+                            <img src="./icons/humidity.png" id="humidityi"></img>
+                            <span class="caption" id="humidity"></span>
+                            <img src="./icons/sunrise.png" id="sunrisei"></img>
+                            <span class="caption" id="sunrise"></span>
+                            <img src="./icons/sunset.png" id="sunseti"></img>
+                            <span class="caption" id="sunset"></span>
                         </div>
                     </div>
                 </div>

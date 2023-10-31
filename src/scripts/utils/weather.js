@@ -1,6 +1,15 @@
 document.getElementById("rem")?.addEventListener("keypress", e => {
     if (e.key === "Enter") {
-        const search_city = "https://geocoding-api.open-meteo.com/v1/search";
+        weather();
+    }
+});
+
+document.getElementById("searching")?.addEventListener('click', () => {
+    weather();
+})
+
+function weather() {
+    const search_city = "https://geocoding-api.open-meteo.com/v1/search";
         const cityName = document.getElementById("rem").value;
         const date = new Date();
 
@@ -38,18 +47,28 @@ document.getElementById("rem")?.addEventListener("keypress", e => {
 
                         document.querySelector(".weather").style.display = "block";
                         document.getElementById("city").innerHTML = cityName;
-                        document.getElementById("currenttemp").innerHTML = "Current temperature: " + currenttemp + "°C";
-                        document.getElementById("mintemp").innerHTML = "Minimum temperature: " + minTemp + "°C";
-                        document.getElementById("maxtemp").innerHTML = "Maximum temperature: " + maxTemp + "°C";
-                        document.getElementById("humidity").innerHTML = "Humidity: " + humidity + "%";
+                        document.getElementById("currenttemp").innerHTML = currenttemp + "°C";
+                        document.getElementById("mintemp").innerHTML = minTemp + "°C";
+                        document.getElementById("maxtemp").innerHTML = maxTemp + "°C";
+                        document.getElementById("humidity").innerHTML = humidity + "%";
                         document.getElementById("time").innerHTML = `${time}:${minutes}`;
                         document.getElementById("day").innerHTML = day;
-                        document.getElementById("wind").innerHTML = "Windspeed: " + windspeed + "Km/H";
-                        document.getElementById("sunrise").innerHTML = "Sunrise: " + sunrise;
-                        document.getElementById("sunset").innerHTML = "Sunset: " + sunset;
-                        document.getElementById("rain").innerHTML = "Rain: " + rain + "mm";
+                        document.getElementById("wind").innerHTML = windspeed + "Km/H";
+                        document.getElementById("sunrise").innerHTML = sunrise;
+                        document.getElementById("sunset").innerHTML = sunset;
+                        document.getElementById("rain").innerHTML = rain + "mm";
+
+                        const image = document.getElementById("weatherIcon");
+                        if (isday == 1 && rain > 0 && currenttemp < 0) {
+                            image.src="./icons/daysnow.png";
+                        } else if (isday == 0 && rain > 0 && currenttemp < 0) {
+                            image.src="./icons/nightsnow.png";
+                        } else if (isday == 0 && rain > 0) {
+                            image.src="./icons/nightrain.png";
+                        } else if (isday == 1 && rain > 0) {
+                            image.src="./icons/dayrain.png"
+                        }
                     })
                     .catch(error => console.log(error));
             });
-    }
-});
+}

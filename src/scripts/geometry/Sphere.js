@@ -152,10 +152,12 @@ export const createSphere = (core) => {
 
         const exit = document.getElementById("exit");
         exit.removeAttribute("hidden");
+        document.getElementById("container").removeAttribute("hidden");
 
         exit.addEventListener("click", () => {
             exit.setAttribute("hidden", "");
             document.getElementById("rem").setAttribute("hidden", "");
+            document.getElementById("container").setAttribute("hidden", "");
 
             if (document.getElementById("weather") != null) {
                 document.getElementById("weather").style.display = "none";

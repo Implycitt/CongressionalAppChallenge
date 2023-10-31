@@ -21,14 +21,14 @@
     </aside>
     <main>
         <canvas id="earth-canvas"></canvas>
-        <button hidden class="exit" id="exit"><i class="material-icons">close</i></button>
+        <button hidden class="exit" id="exit"><img src="./icons/xmark.png"></button>
         <div class="headline-container">
-            <div class="container" id="container">
+            <div hidden class="container" id="container">
                 <div class="search">
                     <input hidden type="text" placeholder="Enter city name: " spellcheck="false" id="rem">
                 </div>
                 <div class="weather" id="weather">
-                    <img src="../src/assets/img/icons/sunrain.png" class="weather-icon">
+                    <img id="weatherIcon" src="./icons/sunnycloud.png">
                     <h1 class="city" id="city"></h1>
                     <h1 class="day" id="day"></h1>
                     <h1 class="time" id="time"></h1>
@@ -37,23 +37,23 @@
                     <h2 class="maxtemp" id="maxtemp"></h2>
                     <div class="details">
                         <div class="col">
-                            <img src="../src/assets/img/icons/humidity.png">
+                            <img src="./icons/humidity.png" id="humidity"></img>
                             <p id="humidity"></p>
                         </div>
                     </div>
                     <div class="col">
                         <div>
-                            <img src="../src/assets/img/icons/wind.png">
+                            <img src="./icons/wind.png" id="wind"></img>
                             <p id="wind"></p>
-                            <img src="../src/assets/img/icons/chance.png">
+                            <img src="./icons/chance.png" id="chance"></img>
                             <p id="rain"></p>
                         </div>
                     </div>
                     <div class="col">
                         <div>
-                            <img src="../src/assets/img/icons/sunrise.png">
+                            <img src="./icons/sunrise.png" id="sunrise"></img>
                             <p id="sunrise"></p>
-                            <img src="../src/assets/img/icons/sunset.png">
+                            <img src="./icons/sunset.png" id="sunset"></img>
                             <p id="sunset"></p>
                         </div>
                     </div>

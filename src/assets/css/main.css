@@ -40,7 +40,6 @@ body::-webkit-scrollbar-thumb {
     -webkit-text-fill-color: white;
 }
 
-
 canvas#earth-canvas {
     position: absolute;
 }

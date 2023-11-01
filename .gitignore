@@ -2,8 +2,12 @@
 node_modules
 
 # Build
+Output/
 dist/
 .package/
 
 # Environment variables
 .env
+
+# other
+*.iss

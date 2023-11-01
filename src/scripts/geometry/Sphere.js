@@ -9,10 +9,14 @@ import {
     BufferGeometry,
     PointsMaterial,
     Points,
-    Float32BufferAttribute
+    Float32BufferAttribute,
+    SphereBufferGeometry,
+    MeshBasicMaterial,
 } from "three";
 import gsap from "gsap";
 import { InteractionManager } from "three.interactive";
+import ThreeGlobe from 'three-globe'
+import Globe from 'globe.gl'
 
 import earth_daymap from "../../assets/img/earth_daymap.jpg";
 import mars_map from "../../assets/img/mars.jpg";
@@ -37,6 +41,7 @@ export const createSphere = (core) => {
     });
 
     const sprite = new TextureLoader().load(star);
+    let markers;
 
     const starGeometry = new BufferGeometry();
     const starMaterial = new PointsMaterial({
@@ -64,6 +69,9 @@ export const createSphere = (core) => {
         map: new TextureLoader().load(earth_clouds),
         transparent: true
     });
+
+    const point = new Points(starGeometry, starMaterial);
+    scene.add(point);
 
     const cloudMesh = new Mesh(cloudGeometry, cloudMaterial);
     scene.add(cloudMesh);
@@ -102,16 +110,6 @@ export const createSphere = (core) => {
 
     interactionManager.add(earth);
 
-    const animate = () => {
-        earth.rotation.y += 0.001;
-        mars.rotation.y += 0.001;
-        cloudMesh.rotation.y += 0.001;
-        gsap.to(group.rotation, { y: mouse.x * 0.5 });
-
-        requestAnimationFrame(animate);
-        renderer.render(scene, camera);
-    };
-
     document.addEventListener("mousemove", e => {
         mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
         mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
@@ -143,9 +141,9 @@ export const createSphere = (core) => {
         const walk = x - startX;
     });
 
-    earth.addEventListener("mousedown", (event) => {
+    earth.addEventListener("mousedown", () => {
         gsap.to(camera.position, {
-            x: -8,
+            x: -4,
             z: 17,
             duration: 2.5
         });
@@ -154,6 +152,39 @@ export const createSphere = (core) => {
         exit.removeAttribute("hidden");
         document.getElementById("container").removeAttribute("hidden");
         document.getElementById("searching").removeAttribute("hidden");
+
+        // document.getElementById("rem")?.addEventListener('keyup', (e) => {
+        //     if (e.key === "Enter") {
+        //         const search_city = "https://geocoding-api.open-meteo.com/v1/search";
+        //         const cityName = document.getElementById("rem").value;
+        //         fetch(`${search_city}?name=${cityName}`)
+        //         .then(response => {
+        //             return response.json();
+        //         })
+        //         .then(data => {
+        //             let lat = data.results[0].latitude;
+        //             let lon = data.results[0].longitude;
+                    
+        //             var latRad = lat * (Math.PI / 180);
+        //             var lonRad = -lon * (Math.PI / 180);
+        //             const N = 1;
+        //             var gData = [...Array(N).keys()].map(() => ({
+        //                 lat: Math.cos(latRad) * Math.cos(lonRad) * 5,
+        //                 lng: Math.sin(latRad) * 5,
+        //                 size: 0.5,
+        //                 color: 'red'
+        //             }));
+                    
+        //             // point.rotation.set(0.0, -lonRad, latRad - Math.PI * 0.5);
+                
+        //             var world = Globe()
+        //             console.log(gData)
+        //             world.pointsData(gData)
+        //             world.pointAltitude('size')
+        //             world.pointColor('red')
+        //         })
+        //     }
+        // });
 
         exit.addEventListener("click", () => {
             exit.setAttribute("hidden", "");
@@ -174,6 +205,16 @@ export const createSphere = (core) => {
 
         document.getElementById("rem").removeAttribute("hidden");
     });
+
+    const animate = () => {
+        earth.rotation.y += 0.001;
+        mars.rotation.y += 0.001;
+        cloudMesh.rotation.y += 0.001;
+        gsap.to(group.rotation, { y: mouse.x * 0.5 });
+
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+    };
 
     animate();
 };

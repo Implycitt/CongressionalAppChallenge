@@ -7,8 +7,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: black;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -25,12 +23,23 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar {
-    position: fixed;
-    width: 5rem;
-    height: 100vh;
-    padding: 1em;
-    background-color: var(--background-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
+
+.nav-link {
+    justify-content: space-around;
+    -webkit-text-fill-color: white;
+}
+
 
 canvas#earth-canvas {
     position: absolute;
@@ -85,21 +94,21 @@ canvas#earth-canvas {
     -webkit-text-fill-color: grey;
 }
 
-.searching {
-    position: absolute;
-    left: 470px;
-    background: transparent;
+.search button {
+    background-color: transparent;
+    position: static;
+    right: 0;
     border: none;
     outline: none;
-    color: white;
-    padding: 0 40px 0 5px;
 }
 
 .searching img{
+    background-color: transparent;
     width: auto;
     height: auto;
-    max-width: 20px;
-    max-height: 20px;
+    max-width: 40px;
+    max-height: 40px;
+    filter: brightness(0) invert(1);
 }
 
 div.row {
@@ -107,11 +116,6 @@ div.row {
     display: inline-block;
     align-items: flex-start;
     vertical-align: middle;
-}
-
-img {
-    width: 100px;
-    height: 100px;
 }
 
 .caption {
@@ -187,6 +191,11 @@ img {
     font-weight: 100;
     margin-top: 15px;
     margin-bottom: 15px
+}
+
+.weather #city {
+    font-size: 40px;
+    font-weight: 500;
 }
 
 .humidity, .wind {

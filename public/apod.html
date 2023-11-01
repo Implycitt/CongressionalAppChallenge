@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="import" href="index.html" />
+    <link rel="import" href="settings.html" />
+    <link rel="import" href="apod.html" />
+    <link rel="import" href="donki.html" />
+
+    <title>Congressional App Challenge</title>
+    
+</head>
+<body>
+    <aside>
+        <nav class="navbar">
+            <a class="nav-link" href="index.html">Weather</a>
+            <a class="nav-link" href="settings.html">Settings</a>
+            <a class="nav-link" href="apod.html">APOD</a>
+            <a class="nav-link" href="donki.html">DONKI</a>
+        </nav>
+    </aside>
+    <main>
+        <canvas id="earth-canvas"></canvas>
+        <button hidden class="exit" id="exit"><img src="./icons/xmark.png"></button>
+        <div class="headline-container">
+            <div hidden class="container" id="container">
+                <div class="search">
+                    <input hidden type="text" placeholder="Enter city name: " spellcheck="false" id="rem">
+                    <button hidden class="searching" id="searching"><img src="./icons/search.png"></button>
+                </div>
+                <div class="weather" id="weather">
+                    <img id="weatherIcon" src="./icons/day.png">
+                    <h1 class="city" id="city"></h1>
+                    <h1 class="day" id="day"></h1>
+                    <h1 class="time" id="time"></h1>
+                    <h1 class="currenttemp" id="currenttemp"></h2>
+                    <h2 class="mintemp" id="mintemp"></h2>
+                    <h2 class="maxtemp" id="maxtemp"></h2>
+                    <div class="details">
+                    <div class="row">
+                        <div>
+                            <img src="./icons/wind.png" id="windi"></img>
+                            <span class="caption" id="wind"></span>
+                            <img src="./icons/chance.png" id="chancei"></img>
+                            <span class="caption" id="rain"></span>
+                            <img src="./icons/humidity.png" id="humidityi"></img>
+                            <span class="caption" id="humidity"></span>
+                            <img src="./icons/sunrise.png" id="sunrisei"></img>
+                            <span class="caption" id="sunrise"></span>
+                            <img src="./icons/sunset.png" id="sunseti"></img>
+                            <span class="caption" id="sunset"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

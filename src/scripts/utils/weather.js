@@ -20,7 +20,6 @@ document.getElementById("rem")?.addEventListener("keypress", e => {
     const search_city = "https://geocoding-api.open-meteo.com/v1/search";
     input.push(e.key);
 
-    console.log(input.join(''));
     fetch(`${search_city}?name=${input.join('')}`)
     .then(response => {
         return response.json();
@@ -138,7 +137,10 @@ function weather() {
                         image.src="./icons/day.png";
                     }
 
-                    gsap.to(container)
+                    if (document.getElementById("rem").value =="") {
+                        input = []
+                        return;
+                    }
 
                 })
                 .catch(error => console.log(error));

@@ -86,11 +86,11 @@ export const createSphere = (core) => {
     const geometry = new SphereGeometry(5, 100, 100);
     const mars_geometry = new SphereGeometry(4, 100, 100);
     const earth = new Mesh(geometry, earthMaterial);
-    const mars = new Mesh(mars_geometry, marsMaterial);
-    mars.position.set(13, 0, -4);
+    // const mars = new Mesh(mars_geometry, marsMaterial);
+    // mars.position.set(13, 0, -4);
 
     scene.add(earth);
-    scene.add(mars);
+    // scene.add(mars);
 
     camera.position.z = 15;
 
@@ -208,7 +208,7 @@ export const createSphere = (core) => {
 
     const animate = () => {
         earth.rotation.y += 0.001;
-        mars.rotation.y += 0.001;
+        // mars.rotation.y += 0.001;
         cloudMesh.rotation.y += 0.001;
         gsap.to(group.rotation, { y: mouse.x * 0.5 });
 

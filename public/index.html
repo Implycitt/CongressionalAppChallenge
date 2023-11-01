@@ -14,14 +14,14 @@
     
 </head>
 <body>
-    <aside>
+    <!-- <aside>
         <nav class="navbar">
             <a class="nav-link" href="index.html">Weather</a>
             <a class="nav-link" href="settings.html">Settings</a>
             <a class="nav-link" href="apod.html">APOD</a>
             <a class="nav-link" href="donki.html">DONKI</a>
         </nav>
-    </aside>
+    </aside> -->
     <main>
         <canvas id="earth-canvas"></canvas>
         <button hidden class="exit" id="exit"><img src="./icons/xmark.png"></button>
@@ -30,6 +30,14 @@
                 <div class="search">
                     <input hidden type="text" placeholder="Enter city name: " spellcheck="false" id="rem">
                     <button hidden class="searching" id="searching"><img src="./icons/search.png"></button>
+                </div>
+                <div class="result-box">
+                    <ul>
+                        <li hidden id="f"></li>
+                        <li hidden id="s"></li>
+                        <li hidden id="t"></li>
+                        <li hidden id="fo"></li>
+                    </ul>
                 </div>
                 <div class="weather" id="weather">
                     <img id="weatherIcon" src="./icons/day.png">

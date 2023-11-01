@@ -110,6 +110,22 @@ canvas#earth-canvas {
     filter: brightness(0) invert(1);
 }
 
+.result-box ul {
+    border-top: 1px solid #999;
+    padding: 15px 10px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    background: #e9f3ff
+}
+
 div.row {
     width: 100px;
     display: inline-block;
